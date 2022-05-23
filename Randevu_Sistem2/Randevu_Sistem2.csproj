@@ -1,0 +1,509 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{24F2856F-4E47-4117-AA1F-0FF9E21A311E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Randevu_Sistem2</RootNamespace>
+    <AssemblyName>Randevu_Sistem2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44328</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.8\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.8\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.8\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Defualt.aspx" />
+    <Content Include="Design\Defualt\css\animate.css" />
+    <Content Include="Design\Defualt\css\aos.css" />
+    <Content Include="Design\Defualt\css\bootstrap.min.css" />
+    <Content Include="Design\Defualt\css\flaticon.css" />
+    <Content Include="Design\Defualt\css\font-awesome.min.css" />
+    <Content Include="Design\Defualt\css\magnific-popup.css" />
+    <Content Include="Design\Defualt\css\nice-select.css" />
+    <Content Include="Design\Defualt\css\owl.carousel.min.css" />
+    <Content Include="Design\Defualt\css\slick.css" />
+    <Content Include="Design\Defualt\css\style.css" />
+    <Content Include="Design\Defualt\css\swiper.min.css" />
+    <Content Include="Design\Defualt\css\themify-icons.css" />
+    <Content Include="Design\Defualt\fonts\fontawesome-webfont.svg" />
+    <Content Include="Design\Defualt\fonts\themify.svg" />
+    <Content Include="Design\Defualt\img\ability_img.png" />
+    <Content Include="Design\Defualt\img\about_bg.png" />
+    <Content Include="Design\Defualt\img\author\author_1.png" />
+    <Content Include="Design\Defualt\img\author\author_2.png" />
+    <Content Include="Design\Defualt\img\author\author_3.png" />
+    <Content Include="Design\Defualt\img\banner_bg.png" />
+    <Content Include="Design\Defualt\img\banner_img.png" />
+    <Content Include="Design\Defualt\img\blog\author.png" />
+    <Content Include="Design\Defualt\img\blog\blog_1.png" />
+    <Content Include="Design\Defualt\img\blog\blog_2.png" />
+    <Content Include="Design\Defualt\img\blog\blog_3.png" />
+    <Content Include="Design\Defualt\img\blog\blog_4.png" />
+    <Content Include="Design\Defualt\img\blog\learn_about_bg.png" />
+    <Content Include="Design\Defualt\img\blog\single_blog_1.png" />
+    <Content Include="Design\Defualt\img\blog\single_blog_2.png" />
+    <Content Include="Design\Defualt\img\blog\single_blog_3.png" />
+    <Content Include="Design\Defualt\img\blog\single_blog_4.png" />
+    <Content Include="Design\Defualt\img\blog\single_blog_5.png" />
+    <Content Include="Design\Defualt\img\blog\slide_thumb_1.png" />
+    <Content Include="Design\Defualt\img\breadcrumb.png" />
+    <Content Include="Design\Defualt\img\comment\comment_1.png" />
+    <Content Include="Design\Defualt\img\comment\comment_2.png" />
+    <Content Include="Design\Defualt\img\comment\comment_3.png" />
+    <Content Include="Design\Defualt\img\cource\cource_1.png" />
+    <Content Include="Design\Defualt\img\cource\cource_2.png" />
+    <Content Include="Design\Defualt\img\cource\cource_3.png" />
+    <Content Include="Design\Defualt\img\doctor\doctor_1.png" />
+    <Content Include="Design\Defualt\img\doctor\doctor_2.png" />
+    <Content Include="Design\Defualt\img\doctor\doctor_3.png" />
+    <Content Include="Design\Defualt\img\doctor\doctor_4.png" />
+    <Content Include="Design\Defualt\img\elements\a.jpg" />
+    <Content Include="Design\Defualt\img\elements\a2.jpg" />
+    <Content Include="Design\Defualt\img\elements\d.jpg" />
+    <Content Include="Design\Defualt\img\elements\disabled-check.png" />
+    <Content Include="Design\Defualt\img\elements\disabled-radio.png" />
+    <Content Include="Design\Defualt\img\elements\f1.jpg" />
+    <Content Include="Design\Defualt\img\elements\f2.jpg" />
+    <Content Include="Design\Defualt\img\elements\f3.jpg" />
+    <Content Include="Design\Defualt\img\elements\f4.jpg" />
+    <Content Include="Design\Defualt\img\elements\f5.jpg" />
+    <Content Include="Design\Defualt\img\elements\f6.jpg" />
+    <Content Include="Design\Defualt\img\elements\f7.jpg" />
+    <Content Include="Design\Defualt\img\elements\f8.jpg" />
+    <Content Include="Design\Defualt\img\elements\g1.jpg" />
+    <Content Include="Design\Defualt\img\elements\g2.jpg" />
+    <Content Include="Design\Defualt\img\elements\g3.jpg" />
+    <Content Include="Design\Defualt\img\elements\g4.jpg" />
+    <Content Include="Design\Defualt\img\elements\g5.jpg" />
+    <Content Include="Design\Defualt\img\elements\g6.jpg" />
+    <Content Include="Design\Defualt\img\elements\g7.jpg" />
+    <Content Include="Design\Defualt\img\elements\g8.jpg" />
+    <Content Include="Design\Defualt\img\elements\primary-check.png" />
+    <Content Include="Design\Defualt\img\elements\primary-radio.png" />
+    <Content Include="Design\Defualt\img\elements\success-check.png" />
+    <Content Include="Design\Defualt\img\elements\success-radio.png" />
+    <Content Include="Design\Defualt\img\favicon.png" />
+    <Content Include="Design\Defualt\img\icon\banner_1.svg" />
+    <Content Include="Design\Defualt\img\icon\banner_2.svg" />
+    <Content Include="Design\Defualt\img\icon\banner_3.svg" />
+    <Content Include="Design\Defualt\img\icon\color_star.svg" />
+    <Content Include="Design\Defualt\img\icon\feature_1.svg" />
+    <Content Include="Design\Defualt\img\icon\feature_2.svg" />
+    <Content Include="Design\Defualt\img\icon\left.svg" />
+    <Content Include="Design\Defualt\img\icon\play.svg" />
+    <Content Include="Design\Defualt\img\icon\quate.svg" />
+    <Content Include="Design\Defualt\img\icon\right.svg" />
+    <Content Include="Design\Defualt\img\icon\star.svg" />
+    <Content Include="Design\Defualt\img\intro_video_bg.png" />
+    <Content Include="Design\Defualt\img\learning_img_bg.png" />
+    <Content Include="Design\Defualt\img\logo.png" />
+    <Content Include="Design\Defualt\img\post\next.png" />
+    <Content Include="Design\Defualt\img\post\post_1.png" />
+    <Content Include="Design\Defualt\img\post\post_10.png" />
+    <Content Include="Design\Defualt\img\post\post_2.png" />
+    <Content Include="Design\Defualt\img\post\post_3.png" />
+    <Content Include="Design\Defualt\img\post\post_4.png" />
+    <Content Include="Design\Defualt\img\post\post_5.png" />
+    <Content Include="Design\Defualt\img\post\post_6.png" />
+    <Content Include="Design\Defualt\img\post\post_7.png" />
+    <Content Include="Design\Defualt\img\post\post_8.png" />
+    <Content Include="Design\Defualt\img\post\post_9.png" />
+    <Content Include="Design\Defualt\img\post\preview.png" />
+    <Content Include="Design\Defualt\img\quote.png" />
+    <Content Include="Design\Defualt\img\reservation.png" />
+    <Content Include="Design\Defualt\img\reservation_bg.png" />
+    <Content Include="Design\Defualt\img\review_bg.png" />
+    <Content Include="Design\Defualt\img\service.png" />
+    <Content Include="Design\Defualt\img\top_service.png" />
+    <Content Include="Design\Defualt\js\bootstrap.min.js" />
+    <Content Include="Design\Defualt\js\contact.js" />
+    <Content Include="Design\Defualt\js\custom.js" />
+    <Content Include="Design\Defualt\js\gmaps.min.js" />
+    <Content Include="Design\Defualt\js\jquery-1.12.1.min.js" />
+    <Content Include="Design\Defualt\js\jquery.ajaxchimp.min.js" />
+    <Content Include="Design\Defualt\js\jquery.easing.min.js" />
+    <Content Include="Design\Defualt\js\jquery.form.js" />
+    <Content Include="Design\Defualt\js\jquery.nice-select.min.js" />
+    <Content Include="Design\Defualt\js\jquery.validate.min.js" />
+    <Content Include="Design\Defualt\js\mail-script.js" />
+    <Content Include="Design\Defualt\js\owl.carousel.min.js" />
+    <Content Include="Design\Defualt\js\popper.min.js" />
+    <Content Include="Design\Log-Sign-Forget\css\main.css" />
+    <Content Include="Design\Log-Sign-Forget\img2\Studio_Project.jpeg" />
+    <Content Include="Design\Log-Sign-Forget\js\global.js" />
+    <Content Include="Design\Log-Sign-Forget\vendor\datepicker\daterangepicker.css" />
+    <Content Include="Design\Log-Sign-Forget\vendor\datepicker\daterangepicker.js" />
+    <Content Include="Design\Log-Sign-Forget\vendor\datepicker\moment.min.js" />
+    <Content Include="Design\Log-Sign-Forget\vendor\font-awesome-4.7\css\font-awesome.css" />
+    <Content Include="Design\Log-Sign-Forget\vendor\font-awesome-4.7\css\font-awesome.min.css" />
+    <Content Include="Design\Log-Sign-Forget\vendor\font-awesome-4.7\fonts\fontawesome-webfont.svg" />
+    <Content Include="Design\Log-Sign-Forget\vendor\font-awesome-4.7\HELP-US-OUT.txt" />
+    <Content Include="Design\Log-Sign-Forget\vendor\jquery\jquery.js" />
+    <Content Include="Design\Log-Sign-Forget\vendor\jquery\jquery.min.js" />
+    <Content Include="Design\Log-Sign-Forget\vendor\mdi-font\css\material-design-iconic-font.css" />
+    <Content Include="Design\Log-Sign-Forget\vendor\mdi-font\css\material-design-iconic-font.min.css" />
+    <Content Include="Design\Log-Sign-Forget\vendor\mdi-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Design\Log-Sign-Forget\vendor\select2\select2.min.css" />
+    <Content Include="Design\Log-Sign-Forget\vendor\select2\select2.min.js" />
+    <Content Include="Design\Master_Page\css\Contanier.css" />
+    <Content Include="Design\Master_Page\css\styles.css" />
+    <Content Include="Design\Master_Page\css\TopBar.css" />
+    <Content Include="Design\Master_Page\fonts\fontawesome-webfont.svg" />
+    <Content Include="Design\Master_Page\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Design\Master_Page\img\favicon.ico" />
+    <Content Include="Design\Master_Page\img\logo.png" />
+    <Content Include="Design\Master_Page\img\user.jpg" />
+    <Content Include="Design\Master_Page\js\JavaScript.js" />
+    <Content Include="Doktor\GenelBilgileri.aspx" />
+    <Content Include="Doktor\Randevularim.aspx" />
+    <Content Include="Doktor\TashisEkleme.aspx" />
+    <Content Include="GenelBilgiler.ascx" />
+    <Content Include="Global.asax" />
+    <Content Include="Hasta\Ana Sayfa.aspx" />
+    <Content Include="Hasta\GenelBilgileri.aspx" />
+    <Content Include="Hasta\Randevu_Al.aspx" />
+    <Content Include="Hasta\Raporlar.aspx" />
+    <Content Include="Hasta\ziyaretler.aspx" />
+    <Content Include="Hasta\Resete.aspx" />
+    <Content Include="HesapOlusturma.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Sekerter\GenelBilgileri.aspx" />
+    <Content Include="Sekerter\Randevular.aspx" />
+    <Content Include="Sifre_Unuttum.aspx" />
+    <Content Include="TopBar.ascx" />
+    <Content Include="User_Menuler.ascx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Defualt.aspx.cs">
+      <DependentUpon>Defualt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Defualt.aspx.designer.cs">
+      <DependentUpon>Defualt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doktor\GenelBilgileri.aspx.cs">
+      <DependentUpon>GenelBilgileri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doktor\GenelBilgileri.aspx.designer.cs">
+      <DependentUpon>GenelBilgileri.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doktor\Randevularim.aspx.cs">
+      <DependentUpon>Randevularim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doktor\Randevularim.aspx.designer.cs">
+      <DependentUpon>Randevularim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doktor\TashisEkleme.aspx.cs">
+      <DependentUpon>TashisEkleme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doktor\TashisEkleme.aspx.designer.cs">
+      <DependentUpon>TashisEkleme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenelBilgiler.ascx.cs">
+      <DependentUpon>GenelBilgiler.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenelBilgiler.ascx.designer.cs">
+      <DependentUpon>GenelBilgiler.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Hasta\Ana Sayfa.aspx.cs">
+      <DependentUpon>Ana Sayfa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hasta\Ana Sayfa.aspx.designer.cs">
+      <DependentUpon>Ana Sayfa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hasta\GenelBilgileri.aspx.cs">
+      <DependentUpon>GenelBilgileri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hasta\GenelBilgileri.aspx.designer.cs">
+      <DependentUpon>GenelBilgileri.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hasta\Randevu_Al.aspx.cs">
+      <DependentUpon>Randevu_Al.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hasta\Randevu_Al.aspx.designer.cs">
+      <DependentUpon>Randevu_Al.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hasta\Raporlar.aspx.cs">
+      <DependentUpon>Raporlar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hasta\Raporlar.aspx.designer.cs">
+      <DependentUpon>Raporlar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hasta\ziyaretler.aspx.cs">
+      <DependentUpon>ziyaretler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hasta\ziyaretler.aspx.designer.cs">
+      <DependentUpon>ziyaretler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hasta\Resete.aspx.cs">
+      <DependentUpon>Resete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hasta\Resete.aspx.designer.cs">
+      <DependentUpon>Resete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HesapOlusturma.aspx.cs">
+      <DependentUpon>HesapOlusturma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HesapOlusturma.aspx.designer.cs">
+      <DependentUpon>HesapOlusturma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sekerter\GenelBilgileri.aspx.cs">
+      <DependentUpon>GenelBilgileri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sekerter\GenelBilgileri.aspx.designer.cs">
+      <DependentUpon>GenelBilgileri.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sekerter\Randevular.aspx.cs">
+      <DependentUpon>Randevular.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sekerter\Randevular.aspx.designer.cs">
+      <DependentUpon>Randevular.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sifre_Unuttum.aspx.cs">
+      <DependentUpon>Sifre_Unuttum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sifre_Unuttum.aspx.designer.cs">
+      <DependentUpon>Sifre_Unuttum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TopBar.ascx.cs">
+      <DependentUpon>TopBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopBar.ascx.designer.cs">
+      <DependentUpon>TopBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Users.Master.cs">
+      <DependentUpon>Users.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users.Master.designer.cs">
+      <DependentUpon>Users.Master</DependentUpon>
+    </Compile>
+    <Compile Include="User_Menuler.ascx.cs">
+      <DependentUpon>User_Menuler.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Menuler.ascx.designer.cs">
+      <DependentUpon>User_Menuler.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Design\Log-Sign-Forget\vendor\font-awesome-4.7\fonts\fontawesome-webfont.eot" />
+    <Content Include="Design\Log-Sign-Forget\vendor\font-awesome-4.7\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Design\Log-Sign-Forget\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff" />
+    <Content Include="Design\Log-Sign-Forget\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Design\Log-Sign-Forget\vendor\font-awesome-4.7\fonts\FontAwesome.otf" />
+    <Content Include="Design\Log-Sign-Forget\vendor\mdi-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Design\Log-Sign-Forget\vendor\mdi-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Design\Log-Sign-Forget\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Design\Log-Sign-Forget\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Design\Master_Page\fonts\fontawesome-webfont.eot" />
+    <Content Include="Design\Master_Page\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Design\Master_Page\fonts\fontawesome-webfont.woff" />
+    <Content Include="Design\Master_Page\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Design\Master_Page\fonts\FontAwesome.otf" />
+    <Content Include="Design\Master_Page\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Design\Master_Page\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Design\Master_Page\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Design\Master_Page\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Design\Defualt\css\style.map" />
+    <Content Include="Design\Defualt\fonts\Flaticon.eot" />
+    <Content Include="Design\Defualt\fonts\Flaticon.ttf" />
+    <Content Include="Design\Defualt\fonts\Flaticon.woff" />
+    <Content Include="Design\Defualt\fonts\Flaticon.woff2" />
+    <Content Include="Design\Defualt\fonts\fontawesome-webfont.eot" />
+    <Content Include="Design\Defualt\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Design\Defualt\fonts\fontawesome-webfont.woff" />
+    <Content Include="Design\Defualt\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Design\Defualt\fonts\FontAwesome.otf" />
+    <Content Include="Design\Defualt\fonts\themify.eot" />
+    <Content Include="Design\Defualt\fonts\themify.ttf" />
+    <Content Include="Design\Defualt\fonts\themify.woff" />
+    <Content Include="Design\Defualt\sass\style.scss" />
+    <Content Include="Design\Defualt\sass\_about_us.scss" />
+    <Content Include="Design\Defualt\sass\_banner.scss" />
+    <Content Include="Design\Defualt\sass\_blog.scss" />
+    <Content Include="Design\Defualt\sass\_blog_part.scss" />
+    <Content Include="Design\Defualt\sass\_breadcrumb.scss" />
+    <Content Include="Design\Defualt\sass\_button.scss" />
+    <Content Include="Design\Defualt\sass\_common.scss" />
+    <Content Include="Design\Defualt\sass\_contact.scss" />
+    <Content Include="Design\Defualt\sass\_doctor_list.scss" />
+    <Content Include="Design\Defualt\sass\_elements.scss" />
+    <Content Include="Design\Defualt\sass\_extends.scss" />
+    <Content Include="Design\Defualt\sass\_feature_part.scss" />
+    <Content Include="Design\Defualt\sass\_footer.scss" />
+    <Content Include="Design\Defualt\sass\_intro_video_bg.scss" />
+    <Content Include="Design\Defualt\sass\_menu.scss" />
+    <Content Include="Design\Defualt\sass\_mixins.scss" />
+    <Content Include="Design\Defualt\sass\_our_depertment.scss" />
+    <Content Include="Design\Defualt\sass\_regervation_part.scss" />
+    <Content Include="Design\Defualt\sass\_review.scss" />
+    <Content Include="Design\Defualt\sass\_single_blog.scss" />
+    <Content Include="Design\Defualt\sass\_variables.scss" />
+    <None Include="packages.config" />
+    <Content Include="Users.Master" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Siniflarim\Siniflarim.csproj">
+      <Project>{9ca797c4-ba9d-45c1-b089-e6b72996b5f3}</Project>
+      <Name>Siniflarim</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VeriTabani\VeriTabani.csproj">
+      <Project>{9b43b5e7-cb90-4346-b62f-b0c1fbc72fc7}</Project>
+      <Name>VeriTabani</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApi\WebApi.csproj">
+      <Project>{0130a14d-dae5-49e8-9b58-3d9269bcc1d1}</Project>
+      <Name>WebApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62176</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44328/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

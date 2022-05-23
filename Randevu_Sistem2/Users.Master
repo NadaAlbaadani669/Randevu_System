@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Users.master.cs" Inherits="Randevu_Sistem2.Users" %>
+
+
+<%@ Register Src="~/User_Menuler.ascx" TagPrefix="uc1" TagName="User_Menuler" %>
+<%@ Register Src="~/TopBar.ascx" TagPrefix="uc1" TagName="TopBar" %>
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+	<title>
+		<asp:ContentPlaceHolder ID="PageTitle" runat="server"></asp:ContentPlaceHolder>
+	</title>
+	
+    <link href="Design/Master_Page/css/styles.css" rel="stylesheet" />
+    <link href="Design/Master_Page/css/Contanier.css" rel="stylesheet" />
+    <link href="Design/Master_Page/css/TopBar.css" rel="stylesheet" />
+    <link rel="icon" href="Design/Master_Page/img/favicon.ico" /> 
+</head>
+<body>
+    <form id="form1" runat="server">
+		<div class="Container">
+			<div class="navigation">
+				<ul>
+					<li>
+						<a href="#">
+							<span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+							<span class="title">Nabila Klinik</span>
+						</a>
+					</li>
+                    <uc1:User_Menuler runat="server" id="User_Menuler" />
+				</ul>
+				
+			</div>
+			<!-- main -->
+			<div class="main">
+				<div class="topbar">
+                    <uc1:TopBar runat="server" id="TopBar" />					
+				</div>
+				<br />
+				<div class="Container">
+					<asp:ContentPlaceHolder ID="contaner_child_ph" runat="server"></asp:ContentPlaceHolder>
+				</div>
+			</div>
+			<!-- main -->
+		</div>
+
+	</form>
+    
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+   
+	 <!-- Jquery JS-->
+    <script src="/Design/Log-Sign-Forget/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="/Design/Log-Sign-Forget/vendor/select2/select2.min.js"></script>
+    <script src="/Design/Log-Sign-Forget/vendor/datepicker/moment.min.js"></script>
+    <script src="/Design/Log-Sign-Forget/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="/Design/Log-Sign-Forget/js/global.js"></script>
+
+	<!-- Menu bar -->
+
+    
+	<script>
+        let menu_topbar = document.querySelector("#deneme");
+        let topbar = document.querySelector(".topbar");
+        let main = document.querySelector(".main");
+        let navigation = document.querySelector(".navigation")
+
+        menu_topbar.onclick = function () {
+            navigation.classList.toggle("active");
+            main.classList.toggle("active")
+        }
+    </script>
+		
+		
+
+</body>
+</html>

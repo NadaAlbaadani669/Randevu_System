@@ -1,0 +1,144 @@
+﻿.Container {
+    /*width: calc(100% - 300px);*/
+    position: absolute;
+    
+}
+
+
+    /****************************GenelBilgileri Usercontrol*******************************/
+.child {
+    position: relative;
+    width: 35%;
+    margin-left: 50px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    padding: 50px 50px 70px 50px; /* T , R , B , L*/
+    border: none;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+}
+
+.input-group{
+    font-size : larger;
+}
+ /***********************************************************/
+
+        /****************************Tashis sayfasi*******************************/
+.TE {
+    position: relative;
+    width: 30%;
+    margin-left: 50px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    padding: 50px 50px 30px 50px; /* T , R , B , L*/
+    border: none;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+}
+.button {
+    background-color: #287bff;
+    border-radius: 6px;
+    border-width: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 100%;
+    height: 44px;
+    position: relative;
+    text-align: center;
+    width: 35%;
+    margin-left: 110px;
+}
+
+.dropdl {
+    color: black;    
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    background-color: #287bff00;
+    width:81%;
+}
+.txtbox{
+    border: 1px solid black;
+    border-radius:7px;
+    
+}
+
+/***********************************************************/
+
+/****************************Randevu al Sayfasi*******************************/
+
+.RA {
+    position: relative;
+    width: 30%;
+    margin-left: 50px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    padding: 50px 30px 30px 50px; /* T , R , B , L*/
+    border: none;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+}
+
+.RAtxt{
+    width:81%;
+    height:40px;
+}
+
+
+/***********************************************************/
+/****************************gridview*******************************/
+.vgDiv {
+    position: relative;
+    margin-left: 50px;
+    width: fit-content;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding: 50px 50px 50px 50px; /* T , R , B , L*/
+    border: none;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+}
+
+.vgCss {
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+}
+
+.vgCss tr th {
+    padding: 8px;
+    color: white;
+    background-color: #287bff;
+    border: 1px solid black;
+}
+
+.vgCss td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.bolcks {
+    position: relative;
+    width: fit-content;
+    display:flex;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding: 50px 30px 30px 50px; /* T , R , B , L*/
+    border: none;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+}
+
+.smallBlock {
+    position: relative;
+    width: 250px;
+    margin: 50px 20px 100px 20px;
+    padding: 50px 30px 30px 50px; /* T , R , B , L*/
+    border: none;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}

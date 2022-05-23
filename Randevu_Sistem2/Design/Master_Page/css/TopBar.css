@@ -1,0 +1,47 @@
+﻿.topbar {
+
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    
+}
+
+.menu_topbar {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.name_topbar {
+    width:800px;
+}
+
+.blabla {
+    position:relative;
+    width:100%;
+    justify-content:end;
+    display:flex;
+}
+.icon1{
+    position: relative;
+    font-size:3em;
+    width:60px;
+    text-align:center;
+    padding-top:7px;
+}
+
+.title1 {
+    position:relative;
+    text-align:right;
+    padding-top:14px;
+    font-size:1.3em;
+}
+

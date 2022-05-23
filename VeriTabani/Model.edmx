@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RandevuSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Doktor">
+          <Key>
+            <PropertyRef Name="Doktor_id" />
+          </Key>
+          <Property Name="Doktor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Doktor_ad" Type="varchar" MaxLength="50" />
+          <Property Name="Doktor_TC" Type="varchar" MaxLength="11" />
+          <Property Name="Doktor_uzmanlik" Type="int" />
+          <Property Name="Doktor_DOB" Type="date" />
+          <Property Name="Doktor_telefon" Type="varchar" MaxLength="50" />
+          <Property Name="Doktor_email" Type="varchar" MaxLength="50" />
+          <Property Name="Doktor_cinsyet" Type="varchar" MaxLength="10" />
+          <Property Name="Doktor_sifresi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kullanci_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Hasta">
+          <Key>
+            <PropertyRef Name="Hasta_id" />
+          </Key>
+          <Property Name="Hasta_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hasta_TC" Type="varchar" MaxLength="11" />
+          <Property Name="Hasta_ad" Type="varchar" MaxLength="50" />
+          <Property Name="Hasta_telefon" Type="varchar" MaxLength="14" />
+          <Property Name="Hasta_email" Type="varchar" MaxLength="50" />
+          <Property Name="Hasta_DOB" Type="date" />
+          <Property Name="Hasta_cinsiyet" Type="varchar" MaxLength="5" />
+          <Property Name="Hasta_sifresi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Hasta_durumu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hasta_id" Type="int" />
+          <Property Name="Doktor_id" Type="int" />
+          <Property Name="Randevu_no" Type="int" />
+          <Property Name="Tashis" Type="text" />
+          <Property Name="Resete" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Kullanci">
+          <Key>
+            <PropertyRef Name="Kullanci_id" />
+          </Key>
+          <Property Name="Kullanci_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanci_adi" Type="varchar" MaxLength="50" />
+          <Property Name="Kullanci_email" Type="varchar" MaxLength="50" />
+          <Property Name="Kullanci_TC" Type="varchar" MaxLength="50" />
+          <Property Name="Kullanci_sifresi" Type="varchar" MaxLength="50" />
+          <Property Name="Kullanci_Yetki" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Menu_id" />
+          </Key>
+          <Property Name="Menu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Menu_ad" Type="varchar" MaxLength="50" />
+          <Property Name="Menu_sira" Type="int" />
+          <Property Name="Menu_yetki" Type="varchar" MaxLength="50" />
+          <Property Name="parentMenu_id" Type="int" />
+          <Property Name="Menu_adres" Type="varchar" MaxLength="50" />
+          <Property Name="Menu_iconAd" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Randevu">
+          <Key>
+            <PropertyRef Name="Randevu_no" />
+          </Key>
+          <Property Name="Randevu_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Randevu_date" Type="date" />
+          <Property Name="Doktor_id" Type="int" />
+          <Property Name="Hasta_id" Type="int" />
+          <Property Name="Randevu_saati" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Sekreter">
+          <Key>
+            <PropertyRef Name="Sekreter_id" />
+          </Key>
+          <Property Name="Sekreter_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sekreter_ad" Type="varchar" MaxLength="50" />
+          <Property Name="Sekreter_TC" Type="varchar" MaxLength="11" />
+          <Property Name="Sekreter_telefonb" Type="varchar" MaxLength="14" />
+          <Property Name="Sekreter_email" Type="varchar" MaxLength="50" />
+          <Property Name="Sekreter_DOB" Type="date" />
+          <Property Name="Sekreter_sifresi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Uzmanlik">
+          <Key>
+            <PropertyRef Name="uzmanlik_id" />
+          </Key>
+          <Property Name="uzmanlik_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uzmanlik_adi" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Doktor_Kullanci">
+          <End Role="Kullanci" Type="Self.Kullanci" Multiplicity="1" />
+          <End Role="Doktor" Type="Self.Doktor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanci">
+              <PropertyRef Name="Kullanci_id" />
+            </Principal>
+            <Dependent Role="Doktor">
+              <PropertyRef Name="Doktor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doktor_Uzmanlik">
+          <End Role="Uzmanlik" Type="Self.Uzmanlik" Multiplicity="0..1" />
+          <End Role="Doktor" Type="Self.Doktor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzmanlik">
+              <PropertyRef Name="uzmanlik_id" />
+            </Principal>
+            <Dependent Role="Doktor">
+              <PropertyRef Name="Doktor_uzmanlik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hasta_durumu_Hasta">
+          <End Role="Hasta" Type="Self.Hasta" Multiplicity="0..1" />
+          <End Role="Hasta_durumu" Type="Self.Hasta_durumu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hasta">
+              <PropertyRef Name="Hasta_id" />
+            </Principal>
+            <Dependent Role="Hasta_durumu">
+              <PropertyRef Name="Hasta_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanci_Kullanci">
+          <End Role="Kullanci" Type="Self.Kullanci" Multiplicity="1" />
+          <End Role="Kullanci1" Type="Self.Kullanci" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanci">
+              <PropertyRef Name="Kullanci_id" />
+            </Principal>
+            <Dependent Role="Kullanci1">
+              <PropertyRef Name="Kullanci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Randevu_Doktor">
+          <End Role="Doktor" Type="Self.Doktor" Multiplicity="0..1" />
+          <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doktor">
+              <PropertyRef Name="Doktor_id" />
+            </Principal>
+            <Dependent Role="Randevu">
+              <PropertyRef Name="Doktor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Randevu_Hasta">
+          <End Role="Hasta" Type="Self.Hasta" Multiplicity="0..1" />
+          <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hasta">
+              <PropertyRef Name="Hasta_id" />
+            </Principal>
+            <Dependent Role="Randevu">
+              <PropertyRef Name="Hasta_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RandevuSystemModelStoreContainer">
+          <EntitySet Name="Doktor" EntityType="Self.Doktor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hasta" EntityType="Self.Hasta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hasta_durumu" EntityType="Self.Hasta_durumu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanci" EntityType="Self.Kullanci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Randevu" EntityType="Self.Randevu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sekreter" EntityType="Self.Sekreter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uzmanlik" EntityType="Self.Uzmanlik" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Doktor_Kullanci" Association="Self.FK_Doktor_Kullanci">
+            <End Role="Kullanci" EntitySet="Kullanci" />
+            <End Role="Doktor" EntitySet="Doktor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doktor_Uzmanlik" Association="Self.FK_Doktor_Uzmanlik">
+            <End Role="Uzmanlik" EntitySet="Uzmanlik" />
+            <End Role="Doktor" EntitySet="Doktor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hasta_durumu_Hasta" Association="Self.FK_Hasta_durumu_Hasta">
+            <End Role="Hasta" EntitySet="Hasta" />
+            <End Role="Hasta_durumu" EntitySet="Hasta_durumu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanci_Kullanci" Association="Self.FK_Kullanci_Kullanci">
+            <End Role="Kullanci" EntitySet="Kullanci" />
+            <End Role="Kullanci1" EntitySet="Kullanci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Randevu_Doktor" Association="Self.FK_Randevu_Doktor">
+            <End Role="Doktor" EntitySet="Doktor" />
+            <End Role="Randevu" EntitySet="Randevu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Randevu_Hasta" Association="Self.FK_Randevu_Hasta">
+            <End Role="Hasta" EntitySet="Hasta" />
+            <End Role="Randevu" EntitySet="Randevu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RandevuSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Doktor">
+          <Key>
+            <PropertyRef Name="Doktor_id" />
+          </Key>
+          <Property Name="Doktor_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Doktor_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Doktor_TC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Doktor_uzmanlik" Type="Int32" />
+          <Property Name="Doktor_DOB" Type="DateTime" Precision="0" />
+          <Property Name="Doktor_telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Doktor_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Doktor_cinsyet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Doktor_sifresi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kullanci_id" Type="Int32" />
+          <NavigationProperty Name="Kullanci" Relationship="Self.FK_Doktor_Kullanci" FromRole="Doktor" ToRole="Kullanci" />
+          <NavigationProperty Name="Uzmanlik" Relationship="Self.FK_Doktor_Uzmanlik" FromRole="Doktor" ToRole="Uzmanlik" />
+          <NavigationProperty Name="Randevus" Relationship="Self.FK_Randevu_Doktor" FromRole="Doktor" ToRole="Randevu" />
+        </EntityType>
+        <EntityType Name="Hasta">
+          <Key>
+            <PropertyRef Name="Hasta_id" />
+          </Key>
+          <Property Name="Hasta_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hasta_TC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Hasta_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hasta_telefon" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Hasta_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hasta_DOB" Type="DateTime" Precision="0" />
+          <Property Name="Hasta_cinsiyet" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Hasta_sifresi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Hasta_durumu" Relationship="Self.FK_Hasta_durumu_Hasta" FromRole="Hasta" ToRole="Hasta_durumu" />
+          <NavigationProperty Name="Randevus" Relationship="Self.FK_Randevu_Hasta" FromRole="Hasta" ToRole="Randevu" />
+        </EntityType>
+        <EntityType Name="Hasta_durumu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hasta_id" Type="Int32" />
+          <Property Name="Doktor_id" Type="Int32" />
+          <Property Name="Randevu_no" Type="Int32" />
+          <Property Name="Tashis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Resete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Hasta" Relationship="Self.FK_Hasta_durumu_Hasta" FromRole="Hasta_durumu" ToRole="Hasta" />
+        </EntityType>
+        <EntityType Name="Kullanci">
+          <Key>
+            <PropertyRef Name="Kullanci_id" />
+          </Key>
+          <Property Name="Kullanci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanci_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kullanci_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kullanci_TC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kullanci_sifresi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kullanci_Yetki" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Doktor" Relationship="Self.FK_Doktor_Kullanci" FromRole="Kullanci" ToRole="Doktor" />
+          <NavigationProperty Name="Kullanci1" Relationship="Self.FK_Kullanci_Kullanci" FromRole="Kullanci" ToRole="Kullanci1" />
+          <NavigationProperty Name="Kullanci2" Relationship="Self.FK_Kullanci_Kullanci" FromRole="Kullanci1" ToRole="Kullanci" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Menu_id" />
+          </Key>
+          <Property Name="Menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Menu_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_sira" Type="Int32" />
+          <Property Name="Menu_yetki" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parentMenu_id" Type="Int32" />
+          <Property Name="Menu_adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_iconAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Randevu">
+          <Key>
+            <PropertyRef Name="Randevu_no" />
+          </Key>
+          <Property Name="Randevu_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Randevu_date" Type="DateTime" Precision="0" />
+          <Property Name="Doktor_id" Type="Int32" />
+          <Property Name="Hasta_id" Type="Int32" />
+          <Property Name="Randevu_saati" Type="Time" Precision="7" />
+          <NavigationProperty Name="Doktor" Relationship="Self.FK_Randevu_Doktor" FromRole="Randevu" ToRole="Doktor" />
+          <NavigationProperty Name="Hasta" Relationship="Self.FK_Randevu_Hasta" FromRole="Randevu" ToRole="Hasta" />
+        </EntityType>
+        <EntityType Name="Sekreter">
+          <Key>
+            <PropertyRef Name="Sekreter_id" />
+          </Key>
+          <Property Name="Sekreter_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sekreter_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sekreter_TC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Sekreter_telefonb" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Sekreter_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sekreter_DOB" Type="DateTime" Precision="0" />
+          <Property Name="Sekreter_sifresi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Uzmanlik">
+          <Key>
+            <PropertyRef Name="uzmanlik_id" />
+          </Key>
+          <Property Name="uzmanlik_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uzmanlik_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Doktors" Relationship="Self.FK_Doktor_Uzmanlik" FromRole="Uzmanlik" ToRole="Doktor" />
+        </EntityType>
+        <Association Name="FK_Doktor_Kullanci">
+          <End Role="Kullanci" Type="Self.Kullanci" Multiplicity="1" />
+          <End Role="Doktor" Type="Self.Doktor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanci">
+              <PropertyRef Name="Kullanci_id" />
+            </Principal>
+            <Dependent Role="Doktor">
+              <PropertyRef Name="Doktor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doktor_Uzmanlik">
+          <End Role="Uzmanlik" Type="Self.Uzmanlik" Multiplicity="0..1" />
+          <End Role="Doktor" Type="Self.Doktor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzmanlik">
+              <PropertyRef Name="uzmanlik_id" />
+            </Principal>
+            <Dependent Role="Doktor">
+              <PropertyRef Name="Doktor_uzmanlik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Randevu_Doktor">
+          <End Role="Doktor" Type="Self.Doktor" Multiplicity="0..1" />
+          <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doktor">
+              <PropertyRef Name="Doktor_id" />
+            </Principal>
+            <Dependent Role="Randevu">
+              <PropertyRef Name="Doktor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hasta_durumu_Hasta">
+          <End Role="Hasta" Type="Self.Hasta" Multiplicity="0..1" />
+          <End Role="Hasta_durumu" Type="Self.Hasta_durumu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hasta">
+              <PropertyRef Name="Hasta_id" />
+            </Principal>
+            <Dependent Role="Hasta_durumu">
+              <PropertyRef Name="Hasta_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Randevu_Hasta">
+          <End Role="Hasta" Type="Self.Hasta" Multiplicity="0..1" />
+          <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hasta">
+              <PropertyRef Name="Hasta_id" />
+            </Principal>
+            <Dependent Role="Randevu">
+              <PropertyRef Name="Hasta_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanci_Kullanci">
+          <End Role="Kullanci" Type="Self.Kullanci" Multiplicity="1" />
+          <End Role="Kullanci1" Type="Self.Kullanci" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanci">
+              <PropertyRef Name="Kullanci_id" />
+            </Principal>
+            <Dependent Role="Kullanci1">
+              <PropertyRef Name="Kullanci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RandevuSystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Doktors" EntityType="Self.Doktor" />
+          <EntitySet Name="Hastas" EntityType="Self.Hasta" />
+          <EntitySet Name="Hasta_durumu" EntityType="Self.Hasta_durumu" />
+          <EntitySet Name="Kullancis" EntityType="Self.Kullanci" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="Randevus" EntityType="Self.Randevu" />
+          <EntitySet Name="Sekreters" EntityType="Self.Sekreter" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Uzmanliks" EntityType="Self.Uzmanlik" />
+          <AssociationSet Name="FK_Doktor_Kullanci" Association="Self.FK_Doktor_Kullanci">
+            <End Role="Kullanci" EntitySet="Kullancis" />
+            <End Role="Doktor" EntitySet="Doktors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doktor_Uzmanlik" Association="Self.FK_Doktor_Uzmanlik">
+            <End Role="Uzmanlik" EntitySet="Uzmanliks" />
+            <End Role="Doktor" EntitySet="Doktors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Randevu_Doktor" Association="Self.FK_Randevu_Doktor">
+            <End Role="Doktor" EntitySet="Doktors" />
+            <End Role="Randevu" EntitySet="Randevus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hasta_durumu_Hasta" Association="Self.FK_Hasta_durumu_Hasta">
+            <End Role="Hasta" EntitySet="Hastas" />
+            <End Role="Hasta_durumu" EntitySet="Hasta_durumu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Randevu_Hasta" Association="Self.FK_Randevu_Hasta">
+            <End Role="Hasta" EntitySet="Hastas" />
+            <End Role="Randevu" EntitySet="Randevus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanci_Kullanci" Association="Self.FK_Kullanci_Kullanci">
+            <End Role="Kullanci" EntitySet="Kullancis" />
+            <End Role="Kullanci1" EntitySet="Kullancis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RandevuSystemModelStoreContainer" CdmEntityContainer="RandevuSystemEntities">
+          <EntitySetMapping Name="Doktors">
+            <EntityTypeMapping TypeName="RandevuSystemModel.Doktor">
+              <MappingFragment StoreEntitySet="Doktor">
+                <ScalarProperty Name="Doktor_id" ColumnName="Doktor_id" />
+                <ScalarProperty Name="Doktor_ad" ColumnName="Doktor_ad" />
+                <ScalarProperty Name="Doktor_TC" ColumnName="Doktor_TC" />
+                <ScalarProperty Name="Doktor_uzmanlik" ColumnName="Doktor_uzmanlik" />
+                <ScalarProperty Name="Doktor_DOB" ColumnName="Doktor_DOB" />
+                <ScalarProperty Name="Doktor_telefon" ColumnName="Doktor_telefon" />
+                <ScalarProperty Name="Doktor_email" ColumnName="Doktor_email" />
+                <ScalarProperty Name="Doktor_cinsyet" ColumnName="Doktor_cinsyet" />
+                <ScalarProperty Name="Doktor_sifresi" ColumnName="Doktor_sifresi" />
+                <ScalarProperty Name="Kullanci_id" ColumnName="Kullanci_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hastas">
+            <EntityTypeMapping TypeName="RandevuSystemModel.Hasta">
+              <MappingFragment StoreEntitySet="Hasta">
+                <ScalarProperty Name="Hasta_id" ColumnName="Hasta_id" />
+                <ScalarProperty Name="Hasta_TC" ColumnName="Hasta_TC" />
+                <ScalarProperty Name="Hasta_ad" ColumnName="Hasta_ad" />
+                <ScalarProperty Name="Hasta_telefon" ColumnName="Hasta_telefon" />
+                <ScalarProperty Name="Hasta_email" ColumnName="Hasta_email" />
+                <ScalarProperty Name="Hasta_DOB" ColumnName="Hasta_DOB" />
+                <ScalarProperty Name="Hasta_cinsiyet" ColumnName="Hasta_cinsiyet" />
+                <ScalarProperty Name="Hasta_sifresi" ColumnName="Hasta_sifresi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hasta_durumu">
+            <EntityTypeMapping TypeName="RandevuSystemModel.Hasta_durumu">
+              <MappingFragment StoreEntitySet="Hasta_durumu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Hasta_id" ColumnName="Hasta_id" />
+                <ScalarProperty Name="Doktor_id" ColumnName="Doktor_id" />
+                <ScalarProperty Name="Randevu_no" ColumnName="Randevu_no" />
+                <ScalarProperty Name="Tashis" ColumnName="Tashis" />
+                <ScalarProperty Name="Resete" ColumnName="Resete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullancis">
+            <EntityTypeMapping TypeName="RandevuSystemModel.Kullanci">
+              <MappingFragment StoreEntitySet="Kullanci">
+                <ScalarProperty Name="Kullanci_id" ColumnName="Kullanci_id" />
+                <ScalarProperty Name="Kullanci_adi" ColumnName="Kullanci_adi" />
+                <ScalarProperty Name="Kullanci_email" ColumnName="Kullanci_email" />
+                <ScalarProperty Name="Kullanci_TC" ColumnName="Kullanci_TC" />
+                <ScalarProperty Name="Kullanci_sifresi" ColumnName="Kullanci_sifresi" />
+                <ScalarProperty Name="Kullanci_Yetki" ColumnName="Kullanci_Yetki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="RandevuSystemModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Menu_id" ColumnName="Menu_id" />
+                <ScalarProperty Name="Menu_ad" ColumnName="Menu_ad" />
+                <ScalarProperty Name="Menu_sira" ColumnName="Menu_sira" />
+                <ScalarProperty Name="Menu_yetki" ColumnName="Menu_yetki" />
+                <ScalarProperty Name="parentMenu_id" ColumnName="parentMenu_id" />
+                <ScalarProperty Name="Menu_adres" ColumnName="Menu_adres" />
+                <ScalarProperty Name="Menu_iconAd" ColumnName="Menu_iconAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Randevus">
+            <EntityTypeMapping TypeName="RandevuSystemModel.Randevu">
+              <MappingFragment StoreEntitySet="Randevu">
+                <ScalarProperty Name="Randevu_no" ColumnName="Randevu_no" />
+                <ScalarProperty Name="Randevu_date" ColumnName="Randevu_date" />
+                <ScalarProperty Name="Doktor_id" ColumnName="Doktor_id" />
+                <ScalarProperty Name="Hasta_id" ColumnName="Hasta_id" />
+                <ScalarProperty Name="Randevu_saati" ColumnName="Randevu_saati" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sekreters">
+            <EntityTypeMapping TypeName="RandevuSystemModel.Sekreter">
+              <MappingFragment StoreEntitySet="Sekreter">
+                <ScalarProperty Name="Sekreter_id" ColumnName="Sekreter_id" />
+                <ScalarProperty Name="Sekreter_ad" ColumnName="Sekreter_ad" />
+                <ScalarProperty Name="Sekreter_TC" ColumnName="Sekreter_TC" />
+                <ScalarProperty Name="Sekreter_telefonb" ColumnName="Sekreter_telefonb" />
+                <ScalarProperty Name="Sekreter_email" ColumnName="Sekreter_email" />
+                <ScalarProperty Name="Sekreter_DOB" ColumnName="Sekreter_DOB" />
+                <ScalarProperty Name="Sekreter_sifresi" ColumnName="Sekreter_sifresi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RandevuSystemModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uzmanliks">
+            <EntityTypeMapping TypeName="RandevuSystemModel.Uzmanlik">
+              <MappingFragment StoreEntitySet="Uzmanlik">
+                <ScalarProperty Name="uzmanlik_id" ColumnName="uzmanlik_id" />
+                <ScalarProperty Name="uzmanlik_adi" ColumnName="uzmanlik_adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
