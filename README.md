@@ -2,8 +2,6 @@
 
 ## Bir klinik için web sayfası
 
-<hr>
-
 #### Projenin backend için C# dili ile yazdım ve ağırlıklı olarak .net Framework kullandım.
 
 #### Arayüz için, Default sayfası ve Login, Signup ve Forgot password sayfaları için 2 hazır şablon kullandım.ve kullanıcının sayfasını oluşturmak için HTML, CSS ve javascript kullandım.
