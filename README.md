@@ -19,7 +19,7 @@
 
 ### Kullandığım Asp.net Teknolojileri:
 
--Projede **4 katman** bulunmaktadır. Web sayfası(aspx sayfaları, mastepage, kullanıcı kontrolleri ve Tasarım klasörü vardır), Siniflarim (ihtiyacım olan tüm sınıflara sahiptir), Veritabani (bu katmanda projeyi veritabanıma bağladım) ve son olarak WebApi (vardı) yazdığım API'lerin Controllers ve Models).<br>
+- Projede **4 katman** bulunmaktadır. Web sayfası(aspx sayfaları, mastepage, kullanıcı kontrolleri ve Tasarım klasörü vardır), Siniflarim (ihtiyacım olan tüm sınıflara sahiptir), Veritabani (bu katmanda projeyi veritabanıma bağladım) ve son olarak WebApi (vardı) yazdığım API'lerin Controllers ve Models).<br>
 - Veritabanımı **MS SQL**'de oluşturdum ve veritabanındaki verilere ulaşmak için **Entity Framework** kullandım.<br>
 - Her sayfa ve kullanıcı için farklı olan Container dışında aynı düzene sahip kullanıcı sayfaları için **Master Page** kullandım.<br>
 - 2 **user kontrolü** oluşturdum. İlki, web sitesinin menü yapısıyla ilgilidir. ikincisi veritabanından kullanıcı adı ve bilgileri okur ve bunları Bilgilerim sayfasında gösterir.<br>
