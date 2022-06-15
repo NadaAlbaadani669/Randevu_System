@@ -1,6 +1,6 @@
 # Randevu_Sistem
 
-## Bir klinik için web sayfası
+## Bir klinik için web sayfası (http://www.nabilaklinik.somee.com/)
 
 #### Projenin backend için C# dili ile yazdım ve ağırlıklı olarak .net Framework kullandım.
 
